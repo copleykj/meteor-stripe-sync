@@ -30,8 +30,11 @@ try{
 
 This package wraps the methods below. These are all the methods that are listed in the [stripe-node](https://github.com/stripe/stripe-node) github documentation.
 
- * account
+ * accounts
+  * [`create(params)`](https://stripe.com/docs/api/node#create_account)
   * [`retrieve()`](https://stripe.com/docs/api/node#retrieve_account)
+  * [`update(accountId[, params])`](https://stripe.com/docs/api/node#update_account)
+  * [`list([params])`](https://stripe.com/docs/api/node#list_accounts)
  * balance
   * [`retrieve()`](https://stripe.com/docs/api/node#retrieve_balance)
   * [`listTransactions([params])`](https://stripe.com/docs/api/node#balance_history)
