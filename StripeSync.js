@@ -1,3 +1,5 @@
+var StripeAPI = Npm.require('stripe');
+
 StripeSync = function (key){
     var Stripe;
     var resources = {
