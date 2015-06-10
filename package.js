@@ -1,7 +1,7 @@
 Package.describe({
     name: 'copleykj:stripe-sync',
     summary: 'Sync wrapper for stripe-node',
-    version: '2.0.1',
+    version: '2.0.2',
     git: 'https://github.com/copleykj/meteor-stripe-sync'
 });
 
