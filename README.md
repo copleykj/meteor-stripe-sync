@@ -2,17 +2,8 @@
 
 A wrapper for Meteor style synchronous Stripe API calls.
 
-## stripe-node requirement ##
-
-
-__*This package requires manually adding separate package that exposes the stripe-node npm package as StripeAPI(key)*__
-
-Due to a number of Meteor packages existing that already expose the stripe-node package I have decided to make this package without that inclusion or the dependancy on any one package. This will allow you to use any package that exposes the stripe-node as `StripeAPI(key)`
-
-Currently the following packages are confirmed to work in combination with stripe-sync.
-
-- **mrgalaxy:stripe** [(Atmosphere)](https://atmospherejs.com/mrgalaxy/stripe) - [(github)](https://github.com/tyler-johnson/stripe-meteor/)
-- **grove:stripe-npm** [(Atmosphere)](https://atmospherejs.com/grove/stripe-npm) - [(github)](https://github.com/grovelabs/meteor-stripe-npm/)
+> ###Notice###
+> As of version 2.0.0 you will no longer need to manually add a package that includes the StripeAPI as it is now included due to the variability of stripe versions being used in those packages
 
 ## Example Usage ##
 
@@ -30,8 +21,11 @@ try{
 
 This package wraps the methods below. These are all the methods that are listed in the [stripe-node](https://github.com/stripe/stripe-node) github documentation.
 
- * account
+ * accounts
+  * [`create(params)`](https://stripe.com/docs/api/node#create_account)
   * [`retrieve()`](https://stripe.com/docs/api/node#retrieve_account)
+  * [`update(accountId[, params])`](https://stripe.com/docs/api/node#update_account)
+  * [`list([params])`](https://stripe.com/docs/api/node#list_accounts)
  * balance
   * [`retrieve()`](https://stripe.com/docs/api/node#retrieve_balance)
   * [`listTransactions([params])`](https://stripe.com/docs/api/node#balance_history)
@@ -66,7 +60,7 @@ This package wraps the methods below. These are all the methods that are listed 
   * [`updateSubscription(customerId, subscriptionId, [, params])`](https://stripe.com/docs/api/node#update_subscription)
   * [`cancelSubscription(customerId, subscriptionId, [, params])`](https://stripe.com/docs/api/node#cancel_subscription)
   * [`listSubscriptions(params)`](https://stripe.com/docs/api/node#list_subscriptions)
-  * [`createCard(customerId[, params])`](https://stripe.com/docs/api/node#create_card)
+  * [`createSource(customerId[, params])`](https://stripe.com/docs/api/node#create_card)
   * [`listCards(customerId)`](https://stripe.com/docs/api/node#list_cards)
   * [`retrieveCard(customerId, cardId)`](https://stripe.com/docs/api/node#retrieve_card)
   * [`updateCard(customerId, cardId[, params])`](https://stripe.com/docs/api/node#update_card)

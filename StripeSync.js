@@ -1,11 +1,12 @@
-StripeSync = function(key){
+StripeSync = function (key){
     var Stripe;
     var resources = {
-        account:["retrieve"],
+        account:["create", "list", "update", "retrieve"],
+        accounts:["create", "list", "update", "retrieve"],
         balance:["retrieve", "listTransactions", "retrieveTransaction"],
         charges:["create", "list", "retrieve", "capture", "refund", "update", "updateDispute", "closeDispute", "setMetadata", "getMetadata"],
         coupons:["create", "list", "retrieve", "del"],
-        customers:["create", "list", "update", "retrieve", "del", "setMetaData", "getMetadata", "createSubscription", "updateSubscription", "cancelSubscription", "listSubscriptions", "createCard", "listCards", "retrieveCard", "updateCard", "deleteCard", "deleteDiscount"],
+        customers:["create", "list", "update", "retrieve", "del", "setMetaData", "getMetadata", "createSubscription", "updateSubscription", "cancelSubscription", "listSubscriptions", "createSource", "listCards", "retrieveCard", "updateCard", "deleteCard", "deleteDiscount"],
         events:["list", "retrieve"],
         invoiceItems:["create", "list", "update", "retrieve", "del"],
         invoices:["create", "list", "update", "retrieve", "retrieveLines", "retrieveUpcoming", "pay"],
@@ -15,14 +16,11 @@ StripeSync = function(key){
         transfers:["create", "list", "retrieve", "update", "cancel", "listTransactions", "setMetadata", "getMetadata"]
     };
 
-    if(!StripeAPI){
-        throw new Error("StripeSync package requires one of the following packages: mrgalaxy:stripe, grove:stripe-npm\nOR another package that exposes stripe-node as StripeAPI(key)");
-    }
 
     Stripe = StripeAPI(key);
 
-    _.each(resources, function(resource, key){
-        _.each(resource, function(funcName){
+    _.each(resources, function (resource, key){
+        _.each(resource, function (funcName){
             var stripeFunc = Stripe[key][funcName];
             Stripe[key][funcName] = Meteor.wrapAsync(stripeFunc, Stripe[key]);
         });
