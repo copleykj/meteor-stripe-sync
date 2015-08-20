@@ -5,7 +5,7 @@ Package.describe({
     git: 'https://github.com/copleykj/meteor-stripe-sync'
 });
 
-Npm.depends({ 'stripe': '3.7.0' });
+Npm.depends({ 'stripe': '3.7.1' });
 
 Package.onUse(function(api) {
     api.versionsFrom('METEOR@0.9.0');

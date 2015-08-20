@@ -38,6 +38,12 @@ StripeSync = function (key){
             "markAsSafe",
             "markAsFraudulent"
         ],
+        refunds: [
+            "create",
+            "list",
+            "update",
+            "retrieve"
+        ],
         coupons: [
             "create",
             "list",
