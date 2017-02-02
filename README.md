@@ -1,3 +1,7 @@
+# Deprecation Warning! #
+
+This package is deprecated in favor of using the standard Stripe package from NPM in conjunction with Meteor's Promise or async/await integration. You can read more about promises and async/await in [this blog post](https://blog.meteor.com/using-promises-and-async-await-in-meteor-8f6f4a04f998#.vg7k39z9y).
+
 # Stripe Sync #
 
 A wrapper for Meteor style synchronous Stripe API calls.
